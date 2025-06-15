@@ -1,39 +1,40 @@
 let runningTotal = 0;
-let buffer = 0;
-let previousOperator;
+        let buffer = '0';
+        let previousOperator = null;
 
-const screen = document.querySelector('screen');
+        const screen = document.querySelector('.screen');
 
-    function buttonClick(){
-        if (isNaN(value)){
-            handleSymbol(value);
-        }else{
-            handleNumber(value);
+        function buttonClick(value) {
+            if (isNaN(value)) {
+                handleSymbol(value);
+            } else {
+                handleNumber(value);
+            }
+            screen.innerText = buffer;
         }
-        screen.innerText = buffer;
-    }
 
-    function handleSymbol(symbol) {
+        function handleSymbol(symbol) {
             switch (symbol) {
                 case 'C':
                     buffer = '0';
                     runningTotal = 0;
+                    previousOperator = null;
                     break;
                 case '←':
                     if (buffer.length === 1) {
                         buffer = "0";
                     } else {
-                        buffer = buffer.toString(0, buffer.length -1);
+                        buffer = buffer.substring(0, buffer.length - 1);
                     }
                     break;
                 case '=':
                     if (previousOperator === null) {
                         return;
                     }
-                    flushOperation(parseInt(buffer));
+                    flushOperation(parseFloat(buffer));
                     previousOperator = null;
-                    buffer = runningTotal;
-                    runningTotal=0;
+                    buffer = runningTotal.toString();
+                    runningTotal = 0;
                     break;
                 case '÷':
                 case '×':
@@ -41,47 +42,51 @@ const screen = document.querySelector('screen');
                 case '+':
                     handleMath(symbol);
                     break;
-                
             }
         }
-    function handleMath(symbol) {
-            if (buffer === "0" ) {
+
+        function handleMath(symbol) {
+            if (buffer === "0") {
                 return;
             }
 
-    const intBuffer = parseInt(buffer);
+            const floatBuffer = parseFloat(buffer);
 
             if (runningTotal === 0) {
-                runningTotal = intBuffer;
+                runningTotal = floatBuffer;
             } else {
-                flushOperation(intBuffer);
+                flushOperation(floatBuffer);
             }
             previousOperator = symbol;
             buffer = "0";
         }
 
-    function flushOperation(intBuffer) {
+        function flushOperation(floatBuffer) {
             if (previousOperator === "+") {
-                runningTotal += intBuffer;
-            } else if (previousOperator === "−") {
-                runningTotal -= intBuffer;
+                runningTotal += floatBuffer;
+            } else if (previousOperator === "-") {
+                runningTotal -= floatBuffer;
             } else if (previousOperator === "×") {
-                runningTotal *= intBuffer;
+                runningTotal *= floatBuffer;
             } else if (previousOperator === "÷") {
-                runningTotal /= intBuffer;
+                runningTotal /= floatBuffer;
             }
         }
-    function handleNumber(numberString){
-        if (buffer ==='0'){
-            buffer = numberString
-        }else{
-            buffer += numberString;
-        }
-    }
 
-    function init(){
-        document.querySelector('.calc-btns').addEventListener('click',function(event){
-            buttonClick(event.targer.innerText);
-        })
-    }
-    init();
+        function handleNumber(numberString) {
+            if (buffer === '0') {
+                buffer = numberString;
+            } else {
+                buffer += numberString;
+            }
+        }
+
+        function init() {
+            document.querySelectorAll('.cal-btn').forEach(button => {
+                button.addEventListener('click', function(event) {
+                    buttonClick(event.target.innerText.trim());
+                });
+            });
+        }
+
+        init();

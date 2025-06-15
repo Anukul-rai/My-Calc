@@ -23,9 +23,8 @@ body{
     font-display: swap;
 }
 
-.wrapper {
-    backdrop-filter: blur(5.5px);
-    -webkit-backdrop-filter: blur(5.5px);            border: 1px solid rgba(255, 255, 255, 0.01);
+.wrapper {         
+    border: 1px solid rgba(255, 255, 255, 0.01);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(231, 208, 208, 0.1);
     color: #232323;
@@ -36,10 +35,8 @@ body{
 }
 
 .screen {
-    backdrop-filter: blur(5.5px);
-    -webkit-backdrop-filter: blur(5.5px);
-    background: rgba(252, 254, 255, 0.75);
-    border: 1px solid rgba(255, 255, 255, 0.01);
+    background-color: rgb(210, 209, 209);
+    border: 1px solid rgba(206, 128, 128, 0.01);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
     color: #232323;
@@ -56,9 +53,6 @@ body{
     margin: 5% 0;
 }
 .cal-btn {
-    backdrop-filter: blur(5.5px);
-    -webkit-backdrop-filter: blur(5.5px);
-    background: rgba(136, 111, 111, 0.75);
     border: 1px solid rgba(255, 255, 255, 0.01);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
@@ -89,4 +83,3 @@ body{
 .triple {
     flex-basis: 73%;
 }
-
