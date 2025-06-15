@@ -1,0 +1,92 @@
+html{
+    box-sizing: border-box;
+    height: 100%;
+}
+
+
+*,
+*::before,
+*::after{
+ box-sizing: inherit;
+ margin: 0;
+ padding: 0;
+
+}
+body{
+    font-family: Arial, sans-serif;
+    height: inherit;
+    background: linear-gradient(180deg, #effd87,
+    #f7f7f7, #63cb94);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-display: swap;
+}
+
+.wrapper {
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);            border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(231, 208, 208, 0.1);
+    color: #232323;
+    background: rgba(57, 46, 46, 0.3);
+    flex-basis: 400px;
+    height: 540px;
+    padding: 20px 35px;
+}
+
+.screen {
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(252, 254, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color: #232323;
+    font-size: 35px;
+    overflow: auto;
+    padding: 20px;
+    text-align: right;
+    width: 326px;
+}
+
+.cal-btn-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 5% 0;
+}
+.cal-btn {
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    background: rgba(136, 111, 111, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(35, 35, 35, 0.1);
+    color: #232323;
+    flex-basis: 20%;
+    font-family: inherit;
+    font-size: 24px;
+    height: 65px;
+}
+.cal-btn:last-child{
+    color: #fff;
+    background: #2f4533;
+}
+.cal-btn:last-child:hover {
+    background-color:inherit;
+    color: inherit;
+}
+.cal-btn:hover {
+    background-color: inherit;
+}
+.cal-btn:active {
+    background-color: #4a4a43;
+}
+.double {
+    flex-basis: 47%;
+}
+
+.triple {
+    flex-basis: 73%;
+}
+
